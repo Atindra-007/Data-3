@@ -1,4 +1,3 @@
-<script>
 const headers = document.querySelectorAll(".accordion-header");
 
 headers.forEach(header => {
@@ -14,4 +13,4 @@ headers.forEach(header => {
     content.style.display = content.style.display === "block" ? "none" : "block";
   });
 });
-</script>
+
