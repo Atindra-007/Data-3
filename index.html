@@ -3,27 +3,59 @@
 <head>
     <title>Git Practice</title>
     <style>
-.faq-section {
+.accordion {
   max-width: 800px;
   margin: 20px auto;
   font-family: Arial, sans-serif;
 }
 
-.faq-item {
-  margin-bottom: 20px;
+.accordion-item {
+  border-bottom: 1px solid #ddd;
 }
 
-.faq-question {
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  padding: 15px;
   font-size: 18px;
   font-weight: bold;
+  background: #f7f7f7;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.3s;
 }
 
-.faq-answer {
+.accordion-header:hover {
+  background: #ececec;
+}
+
+.accordion-content {
+  display: none;
+  padding: 15px;
   font-size: 16px;
-  margin-top: 5px;
   line-height: 1.6;
+  background: #ffffff;
 }
 </style>
+
+<script>
+const headers = document.querySelectorAll(".accordion-header");
+
+headers.forEach(header => {
+  header.addEventListener("click", () => {
+    const content = header.nextElementSibling;
+
+    // Close other open accordions
+    document.querySelectorAll(".accordion-content").forEach(item => {
+      if (item !== content) item.style.display = "none";
+    });
+
+    // Toggle current accordion
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
 
 </head>
 <body>
@@ -39,24 +71,28 @@ With a team of experienced teachers and a balanced approach to academics and co-
 <br>
 <p align="centre">
 
-<div class="faq-section">
+<div class="accordion">
 
-  <div class="faq-item">
-    <h3 class="faq-question">
-      Q - Are transportation facilities available for students in nearby areas?
-    </h3>
-    <p class="faq-answer">
-      A - Yes, we offer safe and GPS-enabled school bus transport covering a large perimeter in and around Bannerghatta Road. Our trained staff ensure that children board and leave safely.
-    </p>
+  <div class="accordion-item">
+    <button class="accordion-header">
+      Are transportation facilities available for students in nearby areas?
+    </button>
+    <div class="accordion-content">
+      <p>
+        Yes, we offer safe and GPS-enabled school bus transport covering a large perimeter in and around Bannerghatta Road. Our trained staff ensure that children board and leave safely.
+      </p>
+    </div>
   </div>
 
-  <div class="faq-item">
-    <h3 class="faq-question">
-      Q - What is the student–teacher ratio across different grades?
-    </h3>
-    <p class="faq-answer">
-      A - We maintain a low student–teacher ratio so that every child receives personal attention. On average, there is 1 teacher for every 15–20 students in our classrooms.
-    </p>
+  <div class="accordion-item">
+    <button class="accordion-header">
+      What is the student–teacher ratio across different grades?
+    </button>
+    <div class="accordion-content">
+      <p>
+        We maintain a low student–teacher ratio so that every child receives personal attention. On average, there is 1 teacher for every 15–20 students in our classrooms.
+      </p>
+    </div>
   </div>
 
 </div>
